@@ -17,10 +17,12 @@ My pipeline consisted of 5 steps:
  1) Dominantly yellow and white pixels are converted to white (RBG 255,255,255). All other color set to black (RBG 0,0,0).
  
  ![image2](binary.png "Binary")
+ 
  2) Canny edge detection is used on the output of the first step. Gauss smoothing used by the called OpenCV function so it was
     not implemented prior to this step.
  
  ![image3](canny.png "Canny edge detection")
+ 
  3) A mask is setting all pixel to black outside the region of interest.
     This region includes the vehicle's lane, the left and the right lane markings. Small strips outside the lane markings are 
     also included to provide robustness when the vehicle is at the edge of the lane or the road is curved.
@@ -28,6 +30,7 @@ My pipeline consisted of 5 steps:
     Features, which are further than ~50 m from the vehicle, are not included in the region of interest.
  
  ![image4](roi.png "Region of interest")
+ 
  4) Hough transformation is used to detect line segments correlating to the left and right lanes.
     Multiple segment is usually detected for both lane. The line segments separated by their slope. Lines with below average 
     slope: Right lane; Others: Left lane. The two population then averaged separately to get an estimation for the left and 
@@ -35,6 +38,7 @@ My pipeline consisted of 5 steps:
     Lines representing these lanes are drawn on the image inplace (mutates the image) in the region of interest.
  
  ![image5](lanes.png "Detected lanes")
+ 
  5) The detected lanes are overlaid on the original frame. 
  
  ![image6](output.png "Output")
