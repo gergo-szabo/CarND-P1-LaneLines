@@ -31,7 +31,7 @@ My pipeline consisted of 5 steps:
     right lane.
     Lines representing these lanes are drawn on the image inplace (mutates the image) in the region of interest.
     ![image5](lanes.png "Detected lanes")
- 5) The detected lanes are overlaid on the original frame.
+ 5) The detected lanes are overlaid on the original frame. 
     ![image6](output.png "Output")
 
 
